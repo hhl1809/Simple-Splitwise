@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct AddPersonViewModel {
     let name: Variable<String> = Variable("")

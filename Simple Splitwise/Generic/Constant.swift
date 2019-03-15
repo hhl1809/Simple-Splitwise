@@ -13,6 +13,8 @@ struct APP_IMAGE {
     static let EMAIL = "email-icon"
     static let CANCEL = "cancel-icon"
     static let ACCEPT = "accept-icon"
+    static let BILL = "bill-icon"
+    static let FACE = "face-icon"
 }
 
 struct APP_ERROR_MESSAGE {
