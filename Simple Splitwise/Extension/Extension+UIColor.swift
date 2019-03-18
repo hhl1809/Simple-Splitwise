@@ -40,4 +40,8 @@ extension UIColor {
         return UIColor(hexString: "#364f6b")
     }
     
+    static func pink() -> UIColor {
+        return UIColor(hexString: "#fc5185")
+    }
+    
 }

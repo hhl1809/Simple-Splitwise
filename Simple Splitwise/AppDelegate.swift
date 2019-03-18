@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import RxSwift
 import RxCocoa
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        do {
 //            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
 //        } catch {}
-        
+        IQKeyboardManager.shared.enable = true
         RealmManager.shared.initRealm()
         return true
     }

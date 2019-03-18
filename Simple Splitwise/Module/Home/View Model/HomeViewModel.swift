@@ -16,12 +16,14 @@ struct HomeViewModel {
     // MARK: Properties
     var listPerson: [Person]? = []
     var listAlphabet: [Character]? = []
+    var listBill: [Bill]? = []
     var listData: Variable<Array<SectionModel<String, Object>>>? = Variable([])
     
     // MARK: - Init
     init() {
         generateListAlphabet()
         generateListPerson()
+        generateListBill()
     }
     
     // MARK: Functions
@@ -32,26 +34,25 @@ struct HomeViewModel {
     }
     
     mutating func generateListPerson() -> Void {
-//        self.listPerson?.removeAll()
         guard let realm = RealmManager.shared.realm else { return }
-        listPerson = realm.objects(Person.self).toArray(ofType: Person.self)
-        
+        listPerson = realm.objects(Person.self).filter("id != 1").toArray(ofType: Person.self)
     }
     
-    mutating func filterListPersonByAlphabet() -> Void {
-        if let listPerson = self.listPerson, listPerson.count > 0, let listAlphabet = self.listAlphabet, listAlphabet.count > 0, var listData = self.listData?.value {
-            listData.removeAll()
-            
-            for char in listAlphabet {
-                var tempArray: [Object] = []
-                for person in listPerson {
-                    if person.name.uppercased().first == char {
-                        tempArray.append(person as Object)
-                    }
+    mutating func generateListBill() -> Void {
+        guard let realm = RealmManager.shared.realm else { return }
+        listBill = realm.objects(Bill.self).toArray(ofType: Bill.self)
+    }
+    
+    mutating func generateListData(index: Int) -> Void {
+        self.listData?.value.removeAll()
+        if var listData =  self.listData?.value {
+            if index == 0 {
+                if let listSection = initDataFromListPerson() {
+                    listData = listSection
                 }
-                if tempArray.count > 0 {
-                    let sectionModel = SectionModel(model: "\(char)", items: tempArray)
-                    listData.append(sectionModel)
+            } else {
+                if let listSection = initDataFromListBill() {
+                    listData = listSection
                 }
             }
             
@@ -59,11 +60,76 @@ struct HomeViewModel {
         }
     }
     
+    mutating func initDataFromListPerson() -> [SectionModel<String, Object>]? {
+        if let listPerson = self.listPerson, listPerson.count > 0, let listAlphabet = self.listAlphabet, listAlphabet.count > 0 {
+            var listSection: [SectionModel<String, Object>] = []
+            
+            for char in listAlphabet {
+                var items: [Object] = []
+                for person in listPerson {
+                    let name = person.name ?? ""
+                    if let firstChar = name.uppercased().first {
+                        if firstChar == char {
+                            items.append(person as Object)
+                        }
+                    }
+                }
+                if items.count > 0 {
+                    let sectionModel = SectionModel(model: "\(char)", items: items)
+                    listSection.append(sectionModel)
+                }
+            }
+            
+            var otherItems: [Object] = []
+            for person in listPerson {
+                let name = person.name ?? ""
+                if let firstChar = name.uppercased().first {
+                    if listAlphabet.index(of: firstChar) == nil {
+                        otherItems.append(person as Object)
+                    }
+                }
+            }
+            if otherItems.count > 0 {
+                let sectionModel = SectionModel(model: "#", items: otherItems)
+                listSection.append(sectionModel)
+            }
+            
+            return listSection
+        }
+        return nil
+    }
+    
+    mutating func initDataFromListBill() -> [SectionModel<String, Object>]? {
+        if let listBill = self.listBill, listBill.count > 0 {
+            var listSection: [SectionModel<String, Object>] = []
+            var tempArray: [Object] = []
+            for bill in listBill {
+                tempArray.append(bill as Object)
+            }
+            if tempArray.count > 0 {
+                let sectionModel = SectionModel(model: "", items: tempArray)
+                listSection.append(sectionModel)
+            }
+            return listSection
+        }
+         return nil
+    }
+    
     func generatePersonCell(person: Person) -> GenericTableViewCell001Model {
-        let name = person.name
-        let phone = person.phone
+        let name = person.name ?? ""
+        let phone = person.phone ?? ""
         let id = person.id
-        let model = GenericTableViewCell001Model(title: name, subtitle: phone, object: person, cellName: "\(id)", imageName: APP_IMAGE.FACE)
+        let model = GenericTableViewCell001Model(title: name, rightTitle: "", subtitle: phone, object: person, cellName: "\(id)", imageName: APP_IMAGE.FACE)
+        return model
+    }
+    
+    func generateBillCell(bill: Bill) -> GenericTableViewCell001Model {
+        let name = bill.title ?? ""
+        let total = bill.total
+        let date = DateUtility.convertTimestampToString(withTimestamp: bill.date, format: DateFormat.type002)
+        let id = bill.id
+        let paidBy = bill.paidBy?.name ?? ""
+        let model = GenericTableViewCell001Model(title: name, rightTitle: date, subtitle: "Total: \(total) VND - Paid by: \(paidBy)", object: bill, cellName: "\(id)", imageName: APP_IMAGE.BILL)
         return model
     }
 }

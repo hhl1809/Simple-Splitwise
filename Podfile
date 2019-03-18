@@ -7,6 +7,8 @@ target 'Simple Splitwise' do
   pod 'RxCocoa',    '~> 4.0'
   pod 'Toast-Swift', '~> 4.0.0'
   pod 'RealmSwift',  '~> 3.13.0'
+  pod 'KMPlaceholderTextView', '~> 1.4.0'
+  pod 'IQKeyboardManagerSwift'
   use_frameworks!
 
   # Pods for Simple Splitwise

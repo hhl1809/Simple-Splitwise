@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     var disposeBag = DisposeBag()
     var viewModel: HomeViewModel?
     var presentAddPersonViewSegue = "presentAddPersonView"
+    var presentAddBillViewSegue = "presentAddBillView"
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -38,8 +39,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.viewModel?.generateListBill()
         self.viewModel?.generateListPerson()
-        self.viewModel?.filterListPersonByAlphabet()
+        self.viewModel?.generateListData(index: self.segmentedControl.selectedSegmentIndex)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -62,13 +64,14 @@ class HomeViewController: UIViewController {
             if this.segmentedControl.selectedSegmentIndex == 0 {
                 this.performSegue(withIdentifier: this.presentAddPersonViewSegue, sender: nil)
             } else {
-                
+                this.performSegue(withIdentifier: this.presentAddBillViewSegue, sender: nil)
             }
             
         }).disposed(by: disposeBag)
         
         segmentedControl.rx.value.subscribe(onNext: { [weak self] (_) in
             guard let this = self else { return }
+            this.viewModel?.generateListData(index: this.segmentedControl.selectedSegmentIndex)
             if this.segmentedControl.selectedSegmentIndex == 0 {
                 this.addButton.setImage(UIImage(named: APP_IMAGE.ADD_PERSON)?.withRenderingMode(.alwaysTemplate), for: .normal)
                 this.addButton.imageView?.tintColor = UIColor.white
@@ -94,19 +97,63 @@ class HomeViewController: UIViewController {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Object>>(
             configureCell: { [weak self] (ds, tv, indexPath, element) in
                 let cell = tv.dequeueReusableCell(withIdentifier: GenericTableViewCell001.cellIdentifier, for: indexPath) as! GenericTableViewCell001
-                if let person = element as? Person, let model = self?.viewModel?.generatePersonCell(person: person) {
-                    cell.initData(model: model)
+                if self?.segmentedControl.selectedSegmentIndex == 0 {
+                    if let person = element as? Person, let model = self?.viewModel?.generatePersonCell(person: person) {
+                        cell.initData(model: model)
+                    }
+                } else {
+                    if let bill = element as? Bill, let model = self?.viewModel?.generateBillCell(bill: bill) {
+                        cell.initData(model: model)
+                    }
                 }
+                
                 return cell
         },titleForHeaderInSection: { dataSource, sectionIndex in
             return dataSource[sectionIndex].model
         })
         viewModel?.listData?.asObservable().bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.map { indexPath in
+            return (indexPath, dataSource[indexPath])
+            }.subscribe(onNext: { [weak self] indexPath, object in
+                guard let this = self else { return }
+                this.tableView.deselectRow(at: indexPath, animated: false)
+                if this.segmentedControl.selectedSegmentIndex == 0 {
+                    
+                } else {
+                    if let bill = object as? Bill {
+                        this.performSegue(withIdentifier: this.presentAddBillViewSegue, sender: bill)
+                    }
+                }
+            }).disposed(by: disposeBag)
     }
     
     func initViewModel() -> Void {
         if viewModel == nil {
             viewModel = HomeViewModel()
+        }
+    }
+    
+    // MARK: - Navigation
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.presentAddBillViewSegue, let vc = segue.destination as? BillDetailViewController, let bill = sender as? Bill {
+            vc.isUpdate = true
+            vc.viewModel = BillDetailViewModel()
+            vc.viewModel?.date = bill.date
+            vc.viewModel?.title = bill.title ?? ""
+            vc.viewModel?.description = bill.desc ?? ""
+            vc.viewModel?.total = bill.total
+            if let paidBy = bill.paidBy {
+                vc.viewModel?.paidBy = paidBy
+            }
+            
+            if let paidFor = bill.paidFor {
+                for person in paidFor {
+                    vc.viewModel?.paidFor?.append(person)
+                }
+            }
+            vc.viewModel?.generateListData()
+            
         }
     }
 

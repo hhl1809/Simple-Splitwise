@@ -37,6 +37,12 @@ class AddPersonViewController: UIViewController {
         initRx()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Functions
     private func setupView() -> Void {        
         for iconImage in iconImages {
@@ -115,10 +121,9 @@ class AddPersonViewController: UIViewController {
             self.view.makeToast(APP_ERROR_MESSAGE.INVALID_PHONE)
             return
         }
-        let person = Person.initialize(name: name, email: email, phone: phone, age: Int(age))
+        let person = Person.initialize(name: name, email: email, phone: phone, age: Int(age) ?? 0)
         RealmManager.shared.add(object: person)
         self.dismiss(animated: true, completion: nil)
-        
         
     }
 

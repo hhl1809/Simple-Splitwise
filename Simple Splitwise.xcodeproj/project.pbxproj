@@ -36,18 +36,29 @@
 		07691957223A0E93009BA23B /* AnimatableSectionModelType+ItemPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07691939223A0E93009BA23B /* AnimatableSectionModelType+ItemPath.swift */; };
 		07691958223A0E93009BA23B /* Changeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769193A223A0E93009BA23B /* Changeset.swift */; };
 		0769195A223A0E93009BA23B /* AnimatableSectionModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0769193C223A0E93009BA23B /* AnimatableSectionModelType.swift */; };
+		076CF45E223DDAFA008EB7F8 /* BillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CF45D223DDAFA008EB7F8 /* BillDetailViewController.swift */; };
+		076CF462223EC1F0008EB7F8 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CF461223EC1F0008EB7F8 /* DatePickerView.swift */; };
+		076CF464223EC200008EB7F8 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076CF463223EC200008EB7F8 /* DatePickerView.xib */; };
+		076CF466223EE71E008EB7F8 /* BillDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CF465223EE71E008EB7F8 /* BillDetailViewModel.swift */; };
+		076CF469223EE8E2008EB7F8 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076CF468223EE8E2008EB7F8 /* DateUtility.swift */; };
+		078F44C4223F4AED00B071D5 /* SelectPersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F44C3223F4AED00B071D5 /* SelectPersonViewModel.swift */; };
+		078F44C6223F50B600B071D5 /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F44C5223F50B600B071D5 /* Extension+UserDefaults.swift */; };
+		078F44C9223F74FA00B071D5 /* GenericTableViewCell002.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078F44C7223F74FA00B071D5 /* GenericTableViewCell002.swift */; };
+		078F44CA223F74FA00B071D5 /* GenericTableViewCell002.xib in Resources */ = {isa = PBXBuildFile; fileRef = 078F44C8223F74FA00B071D5 /* GenericTableViewCell002.xib */; };
 		0798FA11223AD6F300215FDC /* AddPersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798FA10223AD6F300215FDC /* AddPersonViewModel.swift */; };
 		07A88536223A449500FB1742 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A88535223A449500FB1742 /* Extension+UIColor.swift */; };
 		07A8853C223A461A00FB1742 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8853B223A461A00FB1742 /* AddPersonViewController.swift */; };
 		07A8853E223A4BB300FB1742 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8853D223A4BB300FB1742 /* Extension+UIView.swift */; };
 		07A88540223A516900FB1742 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A8853F223A516900FB1742 /* Constant.swift */; };
 		07A88542223A5E6100FB1742 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A88541223A5E6100FB1742 /* Extension+String.swift */; };
+		07AB6913223F00F200E7FA33 /* SelectPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB6912223F00F200E7FA33 /* SelectPersonViewController.swift */; };
 		07C145BA2238EAB900317B11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C145B82238EAB900317B11 /* HomeViewController.swift */; };
 		07C145BD2238EB0000317B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C145BC2238EB0000317B11 /* Main.storyboard */; };
 		07C145BF2238F2DF00317B11 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C145BE2238F2DF00317B11 /* HomeViewModel.swift */; };
 		07C145C42238F8F200317B11 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C145C32238F8F200317B11 /* Person.swift */; };
 		07C50B14223B8EC900170DFD /* GenericTableViewCell001.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50B12223B8EC900170DFD /* GenericTableViewCell001.swift */; };
 		07C50B15223B8EC900170DFD /* GenericTableViewCell001.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C50B13223B8EC900170DFD /* GenericTableViewCell001.xib */; };
+		07C50B17223BA76800170DFD /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50B16223BA76800170DFD /* Bill.swift */; };
 		07F678B422396C63002339B4 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F678B322396C63002339B4 /* RealmManager.swift */; };
 		07FE00952237ADA800D09762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE00942237ADA800D09762 /* AppDelegate.swift */; };
 		07FE009C2237ADA900D09762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FE009B2237ADA900D09762 /* Assets.xcassets */; };
@@ -99,18 +110,29 @@
 		07691939223A0E93009BA23B /* AnimatableSectionModelType+ItemPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimatableSectionModelType+ItemPath.swift"; sourceTree = "<group>"; };
 		0769193A223A0E93009BA23B /* Changeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
 		0769193C223A0E93009BA23B /* AnimatableSectionModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableSectionModelType.swift; sourceTree = "<group>"; };
+		076CF45D223DDAFA008EB7F8 /* BillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailViewController.swift; sourceTree = "<group>"; };
+		076CF461223EC1F0008EB7F8 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		076CF463223EC200008EB7F8 /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		076CF465223EE71E008EB7F8 /* BillDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailViewModel.swift; sourceTree = "<group>"; };
+		076CF468223EE8E2008EB7F8 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		078F44C3223F4AED00B071D5 /* SelectPersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonViewModel.swift; sourceTree = "<group>"; };
+		078F44C5223F50B600B071D5 /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
+		078F44C7223F74FA00B071D5 /* GenericTableViewCell002.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell002.swift; sourceTree = "<group>"; };
+		078F44C8223F74FA00B071D5 /* GenericTableViewCell002.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericTableViewCell002.xib; sourceTree = "<group>"; };
 		0798FA10223AD6F300215FDC /* AddPersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewModel.swift; sourceTree = "<group>"; };
 		07A88535223A449500FB1742 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		07A8853B223A461A00FB1742 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		07A8853D223A4BB300FB1742 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		07A8853F223A516900FB1742 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		07A88541223A5E6100FB1742 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		07AB6912223F00F200E7FA33 /* SelectPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonViewController.swift; sourceTree = "<group>"; };
 		07C145B82238EAB900317B11 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07C145BC2238EB0000317B11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		07C145BE2238F2DF00317B11 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		07C145C32238F8F200317B11 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		07C50B12223B8EC900170DFD /* GenericTableViewCell001.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell001.swift; sourceTree = "<group>"; };
 		07C50B13223B8EC900170DFD /* GenericTableViewCell001.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericTableViewCell001.xib; sourceTree = "<group>"; };
+		07C50B16223BA76800170DFD /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		07F678B322396C63002339B4 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		07FE00912237ADA800D09762 /* Simple Splitwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Splitwise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FE00942237ADA800D09762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +177,7 @@
 				07A88535223A449500FB1742 /* Extension+UIColor.swift */,
 				07A8853D223A4BB300FB1742 /* Extension+UIView.swift */,
 				07A88541223A5E6100FB1742 /* Extension+String.swift */,
+				078F44C5223F50B600B071D5 /* Extension+UserDefaults.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +235,64 @@
 			path = Differentiator;
 			sourceTree = "<group>";
 		};
+		076CF459223DDAE0008EB7F8 /* BillDetail */ = {
+			isa = PBXGroup;
+			children = (
+				076CF45A223DDAE0008EB7F8 /* ViewModel */,
+				076CF45B223DDAE0008EB7F8 /* View */,
+				076CF45C223DDAE0008EB7F8 /* ViewController */,
+			);
+			path = BillDetail;
+			sourceTree = "<group>";
+		};
+		076CF45A223DDAE0008EB7F8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				076CF465223EE71E008EB7F8 /* BillDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		076CF45B223DDAE0008EB7F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		076CF45C223DDAE0008EB7F8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				076CF45D223DDAFA008EB7F8 /* BillDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		076CF45F223EC1D3008EB7F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				076CF460223EC1D3008EB7F8 /* DatePicker */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		076CF460223EC1D3008EB7F8 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				076CF461223EC1F0008EB7F8 /* DatePickerView.swift */,
+				076CF463223EC200008EB7F8 /* DatePickerView.xib */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		076CF467223EE8CE008EB7F8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				076CF468223EE8E2008EB7F8 /* DateUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		07A88537223A44D200FB1742 /* AddPerson */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +326,36 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		07AB690F223F00CF00E7FA33 /* SelectPerson */ = {
+			isa = PBXGroup;
+			children = (
+				07AB6910223F00CF00E7FA33 /* ViewModel */,
+				07AB6911223F00CF00E7FA33 /* ViewController */,
+			);
+			path = SelectPerson;
+			sourceTree = "<group>";
+		};
+		07AB6910223F00CF00E7FA33 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				078F44C3223F4AED00B071D5 /* SelectPersonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		07AB6911223F00CF00E7FA33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07AB6912223F00F200E7FA33 /* SelectPersonViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		07C145B42238EAB900317B11 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				07AB690F223F00CF00E7FA33 /* SelectPerson */,
+				076CF459223DDAE0008EB7F8 /* BillDetail */,
 				07A88537223A44D200FB1742 /* AddPerson */,
 				07C145B52238EAB900317B11 /* Home */,
 			);
@@ -299,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				07C145C32238F8F200317B11 /* Person.swift */,
+				07C50B16223BA76800170DFD /* Bill.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +417,8 @@
 			children = (
 				07C50B12223B8EC900170DFD /* GenericTableViewCell001.swift */,
 				07C50B13223B8EC900170DFD /* GenericTableViewCell001.xib */,
+				078F44C7223F74FA00B071D5 /* GenericTableViewCell002.swift */,
+				078F44C8223F74FA00B071D5 /* GenericTableViewCell002.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -315,6 +426,8 @@
 		07F678B222396C03002339B4 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				076CF467223EE8CE008EB7F8 /* Utilities */,
+				076CF45F223EC1D3008EB7F8 /* View */,
 				07C50B11223B8EAE00170DFD /* TableViewCell */,
 				0769191A223A0E93009BA23B /* RxDataSources */,
 				07F678B322396C63002339B4 /* RealmManager.swift */,
@@ -472,8 +585,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076CF464223EC200008EB7F8 /* DatePickerView.xib in Resources */,
 				07C145BD2238EB0000317B11 /* Main.storyboard in Resources */,
 				0769194D223A0E93009BA23B /* README.md in Resources */,
+				078F44CA223F74FA00B071D5 /* GenericTableViewCell002.xib in Resources */,
 				07FE009F2237ADA900D09762 /* LaunchScreen.storyboard in Resources */,
 				07C50B15223B8EC900170DFD /* GenericTableViewCell001.xib in Resources */,
 				07FE009C2237ADA900D09762 /* Assets.xcassets in Resources */,
@@ -533,6 +648,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Simple Splitwise/Pods-Simple Splitwise-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
@@ -542,6 +659,8 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
@@ -569,7 +688,9 @@
 				07A88540223A516900FB1742 /* Constant.swift in Sources */,
 				0798FA11223AD6F300215FDC /* AddPersonViewModel.swift in Sources */,
 				07691943223A0E93009BA23B /* String+IdentifiableType.swift in Sources */,
+				07AB6913223F00F200E7FA33 /* SelectPersonViewController.swift in Sources */,
 				07691941223A0E93009BA23B /* RxCollectionViewSectionedReloadDataSource.swift in Sources */,
+				078F44C4223F4AED00B071D5 /* SelectPersonViewModel.swift in Sources */,
 				07691946223A0E93009BA23B /* CollectionViewSectionedDataSource.swift in Sources */,
 				07691954223A0E93009BA23B /* IdentifiableValue.swift in Sources */,
 				07691947223A0E93009BA23B /* UI+SectionedViewType.swift in Sources */,
@@ -579,19 +700,26 @@
 				0769195A223A0E93009BA23B /* AnimatableSectionModelType.swift in Sources */,
 				07F678B422396C63002339B4 /* RealmManager.swift in Sources */,
 				0769193D223A0E93009BA23B /* Array+Extensions.swift in Sources */,
+				076CF462223EC1F0008EB7F8 /* DatePickerView.swift in Sources */,
 				07C145C42238F8F200317B11 /* Person.swift in Sources */,
+				078F44C6223F50B600B071D5 /* Extension+UserDefaults.swift in Sources */,
 				07691951223A0E93009BA23B /* SectionModel.swift in Sources */,
 				0769194F223A0E93009BA23B /* Utilities.swift in Sources */,
 				07691919223A0D5D009BA23B /* Extension+Results.swift in Sources */,
+				078F44C9223F74FA00B071D5 /* GenericTableViewCell002.swift in Sources */,
+				07C50B17223BA76800170DFD /* Bill.swift in Sources */,
 				07691952223A0E93009BA23B /* Diff.swift in Sources */,
+				076CF469223EE8E2008EB7F8 /* DateUtility.swift in Sources */,
 				07691953223A0E93009BA23B /* AnimatableSectionModel.swift in Sources */,
 				07691948223A0E93009BA23B /* IntegerType+IdentifiableType.swift in Sources */,
 				07A88542223A5E6100FB1742 /* Extension+String.swift in Sources */,
 				07691955223A0E93009BA23B /* ItemPath.swift in Sources */,
 				07691944223A0E93009BA23B /* RxPickerViewAdapter.swift in Sources */,
+				076CF466223EE71E008EB7F8 /* BillDetailViewModel.swift in Sources */,
 				0769194B223A0E93009BA23B /* TableViewSectionedDataSource.swift in Sources */,
 				07A8853E223A4BB300FB1742 /* Extension+UIView.swift in Sources */,
 				07691940223A0E93009BA23B /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
+				076CF45E223DDAFA008EB7F8 /* BillDetailViewController.swift in Sources */,
 				07C145BA2238EAB900317B11 /* HomeViewController.swift in Sources */,
 				0769193E223A0E93009BA23B /* AnimationConfiguration.swift in Sources */,
 				07C50B14223B8EC900170DFD /* GenericTableViewCell001.swift in Sources */,
@@ -757,6 +885,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Simple Splitwise/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -775,6 +904,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Simple Splitwise/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

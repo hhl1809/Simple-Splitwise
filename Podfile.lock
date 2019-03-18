@@ -1,4 +1,6 @@
 PODS:
+  - IQKeyboardManagerSwift (6.2.0)
+  - KMPlaceholderTextView (1.4.0)
   - Realm (3.13.0):
     - Realm/Headers (= 3.13.0)
   - Realm/Headers (3.13.0)
@@ -12,6 +14,8 @@ PODS:
   - Toast-Swift (4.0.1)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - KMPlaceholderTextView (~> 1.4.0)
   - RealmSwift (~> 3.13.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -19,6 +23,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManagerSwift
+    - KMPlaceholderTextView
     - Realm
     - RealmSwift
     - RxAtomic
@@ -27,6 +33,8 @@ SPEC REPOS:
     - Toast-Swift
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
   RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
@@ -34,6 +42,6 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
 
-PODFILE CHECKSUM: b605cf87bad80c6441daa95c2722942d61cdea1c
+PODFILE CHECKSUM: 159e92fe9ecc7ce8db45f11c5b5ca7ab5f29d1cd
 
 COCOAPODS: 1.5.3
