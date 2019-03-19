@@ -256,11 +256,6 @@ class BillDetailViewController: UIViewController {
             return false
         }
         
-        if totalAmount < total {
-            self.view.makeToast("Summary amount of each person is less than total amount")
-            return false
-        }
-        
         return true
     }
 
