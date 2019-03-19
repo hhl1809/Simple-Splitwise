@@ -33,7 +33,6 @@ class BillDetailViewController: UIViewController {
     var disposeBag = DisposeBag()
     var viewModel: BillDetailViewModel?
     var presentSelectPersonViewSegue = "presentSelectPersonView"
-    var isUpdate: Bool = false
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -67,7 +66,7 @@ class BillDetailViewController: UIViewController {
     }
 
     private func setupView() -> Void {
-        if self.isUpdate {
+        if self.viewModel?.isUpdate ?? false {
             self.navigationTitleLabel.text = "Bill Detail"
         } else {
             self.navigationTitleLabel.text = "Add Bill"
@@ -157,45 +156,114 @@ class BillDetailViewController: UIViewController {
     }
     
     func handleSaveBill() -> Void {
+        if self.validateBillDetail() {
+            let title = self.viewModel?.title ?? ""
+            let desc = self.viewModel?.description ?? ""
+            let date = self.viewModel?.date ?? 0
+            let total = self.viewModel?.total ?? 0
+            guard let paidBy = self.viewModel?.paidBy else { return }
+            guard let paidFor = self.viewModel?.paidFor, paidFor.count != 0 else { return }
+            let bill = Bill.initialize(title: title, total: total, desc: desc, paidBy: paidBy, date: date, paidFor: paidFor)
+            
+            if self.viewModel?.isUpdate ?? false {
+                if let b = self.viewModel?.bill {
+                    bill.id = b.id
+                    RealmManager.shared.update(bill: bill)
+                }
+            } else {
+                RealmManager.shared.add(object: bill)
+            }
+            
+            for cell in tableView.visibleCells {
+                if let cell = cell as? GenericTableViewCell002, let debtor = cell.object as? Person {
+                    if debtor.id ?? "" != paidBy.id ?? "" {
+                        let amount = Double(cell.inputTextField.text ?? "0") ?? 0
+                        let relative = Relative.initialize(creditor: paidBy, debtor: debtor, billId: bill.id ?? "", amount: amount, date: date)
+                        
+                        RealmManager.shared.add(object: relative)
+                        updatePerson(person: debtor, withRelatives: relative, billID: bill.id ?? "")
+                        updatePerson(person: paidBy, withRelatives: relative, billID: bill.id ?? "")
+                        
+                    }
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func updatePerson(person: Person, withRelatives relative: Relative, billID: String) -> Void {
+        guard let debtor = relative.debtor else { return }
+        guard let creditor = relative.creditor else { return }
+        let object = Person.initialize(name: person.name ?? "", email: person.email ?? "", phone: person.phone ?? "", age: person.age)
+        object.id = person.id
+        if let relatives = person.relatives {
+            for rel in relatives {
+                let debtorId = rel.debtor?.id ?? ""
+                let creditorId = rel.creditor?.id ?? ""
+                if !(rel.billId ?? "" == billID && debtor.id ?? "" == debtorId && creditor.id ?? "" == creditorId) {
+                    object.relatives?.append(rel)
+                }
+            }
+           
+        }
+        
+        object.relatives?.append(relative)
+        RealmManager.shared.update(person: object)
+    }
+    
+    func validateBillDetail() -> Bool {
         let title = self.viewModel?.title ?? ""
-        let desc = self.viewModel?.description ?? ""
         let date = self.viewModel?.date ?? 0
         let total = self.viewModel?.total ?? 0
         
         if title == "" {
             self.view.makeToast("Please input Bill title")
-            return
+            return false
         }
         
         if date == 0 {
             self.view.makeToast("Please choose Date")
-            return
+            return false
         }
         
         if total == 0 {
             self.view.makeToast("Please input bill total amount")
-            return
+            return false
         }
         
-        guard let paidBy = self.viewModel?.paidBy else {
+        guard (self.viewModel?.paidBy) != nil else {
             self.view.makeToast("Please choose the person who paid this bill")
-            return
+            return false
         }
         
         guard let paidFor = self.viewModel?.paidFor, paidFor.count != 0 else {
             self.view.makeToast("Please choose list of perons who relative to this bill")
-            return
+            return false
         }
         
-        let bill = Bill.initialize(title: title, total: total, desc: desc, paidBy: paidBy, date: date, paidFor: paidFor)
-        if self.isUpdate {
-            RealmManager.shared.update(bill: bill)
-        } else {
-            RealmManager.shared.add(object: bill)
+        var totalAmount: Double = 0
+        
+        for cell in tableView.visibleCells {
+            if let cell = cell as? GenericTableViewCell002 {
+                let amount = Double(cell.inputTextField.text ?? "0") ?? 0
+                totalAmount = totalAmount + amount
+            }
         }
         
-        self.dismiss(animated: true, completion: nil)
+        if totalAmount > total {
+            self.view.makeToast("Summary amount of each person is larger than total amount")
+            return false
+        }
+        
+        if totalAmount < total {
+            self.view.makeToast("Summary amount of each person is less than total amount")
+            return false
+        }
+        
+        return true
     }
+
     
     func showDatePicker() -> Void {
         let datePickerView = DatePickerView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))

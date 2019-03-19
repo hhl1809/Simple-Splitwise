@@ -16,6 +16,7 @@ struct APP_IMAGE {
     static let BILL = "bill-icon"
     static let FACE = "face-icon"
     static let DELETE = "delete-icon"
+    static let SALARY = "salary-icon"
 }
 
 struct APP_ERROR_MESSAGE {

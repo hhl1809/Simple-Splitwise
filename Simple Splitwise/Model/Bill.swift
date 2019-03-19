@@ -12,7 +12,7 @@ import Realm
 class Bill: Object {
     
     // MARK: - Properties
-    @objc dynamic var id: Double = -1
+    @objc dynamic var id: String? = ""
     @objc dynamic var title: String? = ""
     @objc dynamic var total: Double = 0
     @objc dynamic var desc: String? = ""
@@ -23,7 +23,7 @@ class Bill: Object {
     // MARK: - Init
     static func initialize(title: String, total: Double, desc: String, paidBy: Person, date: Double, paidFor: [Person]) -> Bill {
         let bill = Bill()
-        bill.id = DateUtility.convertDateToTimestamp(withDate: Date())
+        bill.id = UUID().uuidString
         bill.title = title
         bill.total = total
         bill.desc = desc

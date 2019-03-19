@@ -34,13 +34,12 @@ struct HomeViewModel {
     }
     
     mutating func generateListPerson() -> Void {
-        guard let realm = RealmManager.shared.realm else { return }
-        listPerson = realm.objects(Person.self).filter("id != 1").toArray(ofType: Person.self)
+        listPerson = Reporitory.getAllPerson()
     }
     
     mutating func generateListBill() -> Void {
-        guard let realm = RealmManager.shared.realm else { return }
-        listBill = realm.objects(Bill.self).toArray(ofType: Bill.self)
+        listBill = Reporitory.getAllBill()
+
     }
     
     mutating func generateListData(index: Int) -> Void {
@@ -118,8 +117,8 @@ struct HomeViewModel {
     func generatePersonCell(person: Person) -> GenericTableViewCell001Model {
         let name = person.name ?? ""
         let phone = person.phone ?? ""
-        let id = person.id
-        let model = GenericTableViewCell001Model(title: name, rightTitle: "", subtitle: phone, object: person, cellName: "\(id)", imageName: APP_IMAGE.FACE)
+        let id = person.id ?? ""
+        let model = GenericTableViewCell001Model(title: name, rightTitle: "", subtitle: phone, object: person, cellName: id, imageName: APP_IMAGE.FACE)
         return model
     }
     
@@ -127,9 +126,9 @@ struct HomeViewModel {
         let name = bill.title ?? ""
         let total = bill.total
         let date = DateUtility.convertTimestampToString(withTimestamp: bill.date, format: DateFormat.type002)
-        let id = bill.id
+        let id = bill.id ?? ""
         let paidBy = bill.paidBy?.name ?? ""
-        let model = GenericTableViewCell001Model(title: name, rightTitle: date, subtitle: "Total: \(total) VND - Paid by: \(paidBy)", object: bill, cellName: "\(id)", imageName: APP_IMAGE.BILL)
+        let model = GenericTableViewCell001Model(title: name, rightTitle: date, subtitle: "Total: \(total) VND - Paid by: \(paidBy)", object: bill, cellName: id, imageName: APP_IMAGE.BILL)
         return model
     }
 }

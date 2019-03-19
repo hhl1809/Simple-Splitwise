@@ -44,4 +44,8 @@ extension UIColor {
         return UIColor(hexString: "#fc5185")
     }
     
+    static func blueGreen() -> UIColor {
+        return UIColor(hexString: "#3fc1c9")
+    }
+    
 }

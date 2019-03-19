@@ -59,6 +59,10 @@
 		07C50B14223B8EC900170DFD /* GenericTableViewCell001.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50B12223B8EC900170DFD /* GenericTableViewCell001.swift */; };
 		07C50B15223B8EC900170DFD /* GenericTableViewCell001.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C50B13223B8EC900170DFD /* GenericTableViewCell001.xib */; };
 		07C50B17223BA76800170DFD /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50B16223BA76800170DFD /* Bill.swift */; };
+		07C5CE24223FC61A002B5708 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CE23223FC61A002B5708 /* PersonDetailViewController.swift */; };
+		07C5CE26223FC631002B5708 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5CE25223FC631002B5708 /* PersonDetailViewModel.swift */; };
+		07D60FB5224098A2000FDC65 /* Relative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D60FB4224098A2000FDC65 /* Relative.swift */; };
+		07D60FB82240A5DE000FDC65 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D60FB72240A5DE000FDC65 /* Repository.swift */; };
 		07F678B422396C63002339B4 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F678B322396C63002339B4 /* RealmManager.swift */; };
 		07FE00952237ADA800D09762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE00942237ADA800D09762 /* AppDelegate.swift */; };
 		07FE009C2237ADA900D09762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07FE009B2237ADA900D09762 /* Assets.xcassets */; };
@@ -133,6 +137,10 @@
 		07C50B12223B8EC900170DFD /* GenericTableViewCell001.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewCell001.swift; sourceTree = "<group>"; };
 		07C50B13223B8EC900170DFD /* GenericTableViewCell001.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericTableViewCell001.xib; sourceTree = "<group>"; };
 		07C50B16223BA76800170DFD /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		07C5CE23223FC61A002B5708 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		07C5CE25223FC631002B5708 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		07D60FB4224098A2000FDC65 /* Relative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relative.swift; sourceTree = "<group>"; };
+		07D60FB72240A5DE000FDC65 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		07F678B322396C63002339B4 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		07FE00912237ADA800D09762 /* Simple Splitwise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Splitwise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07FE00942237ADA800D09762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -354,6 +362,7 @@
 		07C145B42238EAB900317B11 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				07C5CE20223FC605002B5708 /* PersonDetail */,
 				07AB690F223F00CF00E7FA33 /* SelectPerson */,
 				076CF459223DDAE0008EB7F8 /* BillDetail */,
 				07A88537223A44D200FB1742 /* AddPerson */,
@@ -408,6 +417,7 @@
 			children = (
 				07C145C32238F8F200317B11 /* Person.swift */,
 				07C50B16223BA76800170DFD /* Bill.swift */,
+				07D60FB4224098A2000FDC65 /* Relative.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +431,39 @@
 				078F44C8223F74FA00B071D5 /* GenericTableViewCell002.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		07C5CE20223FC605002B5708 /* PersonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				07C5CE21223FC605002B5708 /* ViewModel */,
+				07C5CE22223FC605002B5708 /* ViewController */,
+			);
+			path = PersonDetail;
+			sourceTree = "<group>";
+		};
+		07C5CE21223FC605002B5708 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				07C5CE25223FC631002B5708 /* PersonDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		07C5CE22223FC605002B5708 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				07C5CE23223FC61A002B5708 /* PersonDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		07D60FB62240A5D1000FDC65 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				07D60FB72240A5DE000FDC65 /* Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		07F678B222396C03002339B4 /* Generic */ = {
@@ -459,6 +502,7 @@
 		07FE00932237ADA800D09762 /* Simple Splitwise */ = {
 			isa = PBXGroup;
 			children = (
+				07D60FB62240A5D1000FDC65 /* Repository */,
 				07691917223A0D2F009BA23B /* Extension */,
 				07F678B222396C03002339B4 /* Generic */,
 				07C145C22238F8CE00317B11 /* Model */,
@@ -707,7 +751,9 @@
 				0769194F223A0E93009BA23B /* Utilities.swift in Sources */,
 				07691919223A0D5D009BA23B /* Extension+Results.swift in Sources */,
 				078F44C9223F74FA00B071D5 /* GenericTableViewCell002.swift in Sources */,
+				07D60FB82240A5DE000FDC65 /* Repository.swift in Sources */,
 				07C50B17223BA76800170DFD /* Bill.swift in Sources */,
+				07C5CE24223FC61A002B5708 /* PersonDetailViewController.swift in Sources */,
 				07691952223A0E93009BA23B /* Diff.swift in Sources */,
 				076CF469223EE8E2008EB7F8 /* DateUtility.swift in Sources */,
 				07691953223A0E93009BA23B /* AnimatableSectionModel.swift in Sources */,
@@ -720,8 +766,10 @@
 				07A8853E223A4BB300FB1742 /* Extension+UIView.swift in Sources */,
 				07691940223A0E93009BA23B /* RxTableViewSectionedAnimatedDataSource.swift in Sources */,
 				076CF45E223DDAFA008EB7F8 /* BillDetailViewController.swift in Sources */,
+				07D60FB5224098A2000FDC65 /* Relative.swift in Sources */,
 				07C145BA2238EAB900317B11 /* HomeViewController.swift in Sources */,
 				0769193E223A0E93009BA23B /* AnimationConfiguration.swift in Sources */,
+				07C5CE26223FC631002B5708 /* PersonDetailViewModel.swift in Sources */,
 				07C50B14223B8EC900170DFD /* GenericTableViewCell001.swift in Sources */,
 				07691957223A0E93009BA23B /* AnimatableSectionModelType+ItemPath.swift in Sources */,
 				07691958223A0E93009BA23B /* Changeset.swift in Sources */,

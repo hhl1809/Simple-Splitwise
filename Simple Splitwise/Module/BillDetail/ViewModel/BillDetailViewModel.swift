@@ -21,6 +21,8 @@ struct BillDetailViewModel {
     var total: Double = 0
     var title: String = ""
     var description: String = ""
+    var bill: Bill?
+    var isUpdate: Bool = false
     
     // MARK: - Init
     init() {
@@ -61,13 +63,33 @@ struct BillDetailViewModel {
 
     func generatePersonCell(person: Person) -> GenericTableViewCell002Model {
         let name = person.name ?? ""
-        let id = person.id
+        let id = person.id ?? ""
         var inputText = ""
         if let listPerson = self.paidFor, listPerson.count > 0 {
             inputText = String(format: "%.2f", total/Double(listPerson.count)) 
         }
+        
+        if self.isUpdate {
+            var amount: Double = 0
+            if let relatives = person.relatives {
+                for relative in relatives {
+                    if id == paidBy?.id ?? "" {
+                        if relative.billId ?? "" == self.bill?.id ?? "" {
+                            amount = amount + relative.amount
+                        }
+                        inputText = String(format: "%.2f", self.total - amount)
+                    } else {
+                        if relative.billId ?? "" == self.bill?.id ?? "" && relative.debtor?.id ?? "" == id {
+                            inputText = String(format: "%.2f", relative.amount)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+        
 
-        let model = GenericTableViewCell002Model(title: "\(name) need to pay ", inputText: inputText, inputTextColor: UIColor.pink(), rightTitle: "VND", object: person, cellName: "\(id)", imageName: APP_IMAGE.DELETE)
+        let model = GenericTableViewCell002Model(title: "\(name) need to pay ", inputText: inputText, inputTextColor: UIColor.pink(), rightTitle: "VND", object: person, cellName: id, imageName: APP_IMAGE.DELETE)
 
         return model
     }

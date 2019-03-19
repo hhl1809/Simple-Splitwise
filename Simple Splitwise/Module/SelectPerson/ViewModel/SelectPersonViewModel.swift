@@ -25,8 +25,7 @@ struct SelectPersonViewModel {
     
     // MARK: Functions
     mutating func generateListPerson() -> Void {
-        guard let realm = RealmManager.shared.realm else { return }
-        listPerson = realm.objects(Person.self).toArray(ofType: Person.self)
+        listPerson = Reporitory.getAllPerson()
     }
     
     mutating func generateListData() -> Void {
@@ -63,7 +62,7 @@ struct SelectPersonViewModel {
     func generatePersonCell(person: Person) -> GenericTableViewCell001Model {
         let name = person.name ?? ""
         let phone = person.phone ?? ""
-        let id = person.id
+        let id = person.id ?? ""
         var isSelect = false
         
         if self.selectedPersons.value.count > 0 {
@@ -75,7 +74,7 @@ struct SelectPersonViewModel {
             }
         }
         
-        let model = GenericTableViewCell001Model(title: name, rightTitle: "", subtitle: phone, object: person, cellName: "\(id)", imageName: APP_IMAGE.FACE, isSelect: isSelect)
+        let model = GenericTableViewCell001Model(title: name, rightTitle: "", subtitle: phone, object: person, cellName: id, imageName: APP_IMAGE.FACE, isSelect: isSelect)
         return model
     }
     

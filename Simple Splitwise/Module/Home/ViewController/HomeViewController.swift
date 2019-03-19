@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     var viewModel: HomeViewModel?
     var presentAddPersonViewSegue = "presentAddPersonView"
     var presentAddBillViewSegue = "presentAddBillView"
+    var pushToPersonDetailSegue = "pushToPersonDetail"
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -119,7 +120,9 @@ class HomeViewController: UIViewController {
                 guard let this = self else { return }
                 this.tableView.deselectRow(at: indexPath, animated: false)
                 if this.segmentedControl.selectedSegmentIndex == 0 {
-                    
+                    if let person = object as? Person {
+                        this.performSegue(withIdentifier: this.pushToPersonDetailSegue, sender: person)
+                    }
                 } else {
                     if let bill = object as? Bill {
                         this.performSegue(withIdentifier: this.presentAddBillViewSegue, sender: bill)
@@ -137,12 +140,13 @@ class HomeViewController: UIViewController {
     // MARK: - Navigation
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.presentAddBillViewSegue, let vc = segue.destination as? BillDetailViewController, let bill = sender as? Bill {
-            vc.isUpdate = true
             vc.viewModel = BillDetailViewModel()
+            vc.viewModel?.isUpdate = true
             vc.viewModel?.date = bill.date
             vc.viewModel?.title = bill.title ?? ""
             vc.viewModel?.description = bill.desc ?? ""
             vc.viewModel?.total = bill.total
+            vc.viewModel?.bill = bill
             if let paidBy = bill.paidBy {
                 vc.viewModel?.paidBy = paidBy
             }
@@ -154,6 +158,9 @@ class HomeViewController: UIViewController {
             }
             vc.viewModel?.generateListData()
             
+        } else if segue.identifier == self.pushToPersonDetailSegue, let vc = segue.destination as? PersonDetailViewController, let person = sender as? Person {
+            vc.initViewModel(person: person)
+
         }
     }
 

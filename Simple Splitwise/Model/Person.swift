@@ -13,16 +13,17 @@ import Realm
 class Person: Object {
     
     // MARK: - Properties
-    @objc dynamic var id: Double = -1
+    @objc dynamic var id: String? = ""
     @objc dynamic var name: String? = ""
     @objc dynamic var email: String? = ""
     @objc dynamic var phone: String? = ""
     @objc dynamic var age: Int = 0
+    var relatives: List<Relative>? = List<Relative>()
     
     // MARK: - Init
     static func initialize(name: String, email: String, phone: String, age: Int) -> Person {
         let person = Person()
-        person.id = DateUtility.convertDateToTimestamp(withDate: Date())
+        person.id = UUID().uuidString
         person.name = name
         person.email = email
         person.phone = phone
